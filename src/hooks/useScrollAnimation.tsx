@@ -86,3 +86,12 @@ export const useScrollProgress = () => {
 
   return progressRef;
 };
+
+};
+
+// Default export for better compatibility
+export default {
+  useScrollAnimation,
+  useParallax,
+  useScrollProgress
+};
