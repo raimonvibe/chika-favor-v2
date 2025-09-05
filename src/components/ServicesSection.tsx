@@ -1,127 +1,121 @@
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { 
+  Palette, 
+  Monitor, 
+  Printer, 
+  Share2, 
+  Package, 
+  Megaphone,
+  ArrowRight
+} from 'lucide-react';
 
 const ServicesSection = () => {
-  const headerRef = useScrollAnimation();
-  const servicesRef = useScrollAnimation({ threshold: 0.1 });
-
   const services = [
     {
-      title: 'Logo Design',
-      description: 'Unique and memorable logos that capture your brand essence',
-      icon: '🎨',
-      features: ['Custom logo design', 'Brand guidelines', 'Multiple variations', 'Vector files'],
-      price: 'From $200'
+      icon: Palette,
+      title: 'Logo & Brand Identity',
+      description: 'Custom logo design and complete brand identity packages that capture your essence and resonate with your target audience.',
+      features: ['Logo Design', 'Brand Guidelines', 'Color Palettes', 'Typography Selection'],
+      price: 'Starting at $299'
     },
     {
-      title: 'Brand Identity',
-      description: 'Complete visual identity systems for consistent branding',
-      icon: '⚡',
-      features: ['Logo design', 'Color palette', 'Typography', 'Brand applications'],
-      price: 'From $500'
+      icon: Monitor,
+      title: 'Digital Design',
+      description: 'Modern digital graphics for websites, apps, and online platforms that enhance user experience and brand consistency.',
+      features: ['Web Graphics', 'UI Elements', 'Digital Banners', 'Icon Design'],
+      price: 'Starting at $199'
     },
     {
-      title: 'Social Media Design',
-      description: 'Eye-catching social media templates and campaigns',
-      icon: '📱',
-      features: ['Post templates', 'Story designs', 'Cover images', 'Ad creatives'],
-      price: 'From $150'
-    },
-    {
+      icon: Printer,
       title: 'Print Design',
-      description: 'Professional print materials that make an impact',
-      icon: '📄',
-      features: ['Flyers & brochures', 'Business cards', 'Posters', 'Packaging design'],
-      price: 'From $100'
+      description: 'Professional print materials including business cards, brochures, flyers, and marketing collateral.',
+      features: ['Business Cards', 'Brochures', 'Flyers', 'Posters'],
+      price: 'Starting at $149'
     },
     {
-      title: 'Web Design',
-      description: 'Modern website designs that convert visitors',
-      icon: '💻',
-      features: ['UI/UX design', 'Responsive layouts', 'Prototyping', 'Design systems'],
-      price: 'From $800'
+      icon: Share2,
+      title: 'Social Media Design',
+      description: 'Engaging social media graphics and templates that boost your online presence and engagement rates.',
+      features: ['Post Templates', 'Story Graphics', 'Cover Images', 'Ad Creatives'],
+      price: 'Starting at $99'
     },
     {
-      title: 'Consultation',
-      description: 'Strategic design consultation for your brand',
-      icon: '🤝',
-      features: ['Brand audit', 'Design strategy', 'Creative direction', 'Project planning'],
-      price: 'From $120/hour'
+      icon: Package,
+      title: 'Packaging Design',
+      description: 'Eye-catching packaging solutions that make your products stand out on shelves and communicate brand values.',
+      features: ['Product Packaging', 'Label Design', 'Box Design', 'Retail Ready'],
+      price: 'Starting at $399'
+    },
+    {
+      icon: Megaphone,
+      title: 'Marketing Materials',
+      description: 'Comprehensive marketing design services including campaigns, advertisements, and promotional materials.',
+      features: ['Ad Campaigns', 'Promotional Items', 'Trade Show Materials', 'Direct Mail'],
+      price: 'Starting at $249'
     }
   ];
 
   return (
-    <section id="services" className="py-section bg-surface">
-      <div className="max-w-container mx-auto px-6">
-        {/* Section Header */}
-        <div ref={headerRef} className="scroll-reveal text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-serif font-bold mb-6">
-            My <span className="gradient-text">Services</span>
+    <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+            <span className="gradient-text">Services</span> I Offer
           </h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Professional design services tailored to help your brand stand out and make a lasting impression.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Comprehensive design solutions tailored to elevate your brand and achieve your business goals.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-coral rounded-full mx-auto mt-8" />
         </div>
 
-        {/* Services Grid */}
-        <div ref={servicesRef} className="scroll-reveal">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.title}
-                className="group relative bg-background rounded-3xl p-8 border border-border hover:border-accent-gold transition-all duration-500 hover:shadow-2xl hover:-translate-y-4"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Icon */}
-                <div className="text-4xl mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <Card key={index} className="group hover-lift border-0 shadow-lg h-full">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 rounded-2xl gradient-bg-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <service.icon className="h-8 w-8 text-white" />
                 </div>
-
-                {/* Content */}
-                <div className="space-y-4">
-                  <h3 className="text-2xl font-serif font-semibold text-text-primary group-hover:text-accent-gold transition-colors">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-text-secondary leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  {/* Features */}
-                  <ul className="space-y-2">
-                    {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center text-sm text-text-secondary">
-                        <div className="w-1.5 h-1.5 bg-accent-gold rounded-full mr-3" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Price */}
-                  <div className="pt-4 border-t border-border">
-                    <span className="text-2xl font-bold gradient-text">{service.price}</span>
+                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </CardHeader>
+              
+              <CardContent className="pt-0 flex-1 flex flex-col">
+                <div className="space-y-2 mb-6 flex-1">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center text-sm">
+                      <ArrowRight className="h-3 w-3 text-primary mr-2 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="border-t pt-4 mt-auto">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="font-semibold text-primary">{service.price}</span>
                   </div>
+                  <Button className="w-full gradient-bg hover:opacity-90">
+                    Get Started
+                  </Button>
                 </div>
-
-                {/* Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/5 to-accent-coral/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-              </div>
-            ))}
-          </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-accent-gold to-accent-coral p-12 rounded-3xl text-white">
-            <h3 className="text-3xl font-serif font-semibold mb-4">
-              Ready to Get Started?
+          <div className="bg-card rounded-3xl p-8 shadow-lg max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold mb-4">
+              Need a Custom Solution?
             </h3>
-            <p className="text-white/90 mb-6 max-w-md mx-auto">
-              Let's discuss your project and create something amazing together.
+            <p className="text-muted-foreground mb-6">
+              Every project is unique. Let's discuss your specific requirements and create a tailored solution that perfectly fits your needs and budget.
             </p>
-            <button className="bg-white text-accent-gold px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              Get a Quote
-            </button>
+            <Button size="lg" className="gradient-bg hover:opacity-90">
+              Schedule a Consultation
+            </Button>
           </div>
         </div>
       </div>
