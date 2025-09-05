@@ -1,226 +1,224 @@
 import { useState } from 'react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
+import { 
+  Mail, 
+  Phone, 
+  MapPin, 
+  Clock,
+  Send,
+  MessageCircle
+} from 'lucide-react';
 
 const ContactSection = () => {
-  const headerRef = useScrollAnimation();
-  const formRef = useScrollAnimation({ threshold: 0.2 });
-  const infoRef = useScrollAnimation({ threshold: 0.2 });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-  };
+    setIsSubmitting(true);
 
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('https://formspree.io/f/mjkeplpr', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you within 24 hours.",
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   const contactInfo = [
     {
-      title: 'Email',
+      icon: Mail,
+      label: 'Email',
       value: 'hello@chikafavor.com',
-      icon: '✉️',
-      link: 'mailto:hello@chikafavor.com'
+      href: 'mailto:hello@chikafavor.com'
     },
     {
-      title: 'Phone',
-      value: '+234 (0) 123 456 789',
-      icon: '📞',
-      link: 'tel:+2341234567890'
+      icon: Phone,
+      label: 'Phone',
+      value: '+234 (0) 123 456 7890',
+      href: 'tel:+2341234567890'
     },
     {
-      title: 'Location',
+      icon: MapPin,
+      label: 'Location',
       value: 'Lagos, Nigeria',
-      icon: '📍',
-      link: '#'
+      href: '#'
     },
     {
-      title: 'Response Time',
+      icon: Clock,
+      label: 'Response Time',
       value: 'Within 24 hours',
-      icon: '⏰',
-      link: '#'
+      href: '#'
     }
   ];
 
-  const socialLinks = [
-    { name: 'Instagram', icon: '📷', url: '#' },
-    { name: 'Behance', icon: '🎨', url: '#' },
-    { name: 'LinkedIn', icon: '💼', url: '#' },
-    { name: 'Twitter', icon: '🐦', url: '#' },
-  ];
-
   return (
-    <section id="contact" className="py-section bg-background">
-      <div className="max-w-container mx-auto px-6">
-        {/* Section Header */}
-        <div ref={headerRef} className="scroll-reveal text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-serif font-bold mb-6">
-            Let's <span className="gradient-text">Connect</span>
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+            Let's Work <span className="gradient-text">Together</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind? Let's discuss how we can bring your vision to life 
-            with creative design solutions.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            Ready to bring your vision to life? Get in touch and let's create something amazing together.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-coral rounded-full mx-auto mt-8" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div ref={infoRef} className="scroll-reveal space-y-8">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-serif font-semibold gradient-text">
-                Get in Touch
-              </h3>
-              <p className="text-text-secondary leading-relaxed">
-                Ready to start your next project? I'd love to hear about your ideas and 
-                discuss how we can work together to create something amazing.
+          <div className="space-y-8">
+            <div>
+              <div className="flex items-center gap-3 mb-6">
+                <Badge className="gradient-bg-secondary text-white px-4 py-2">
+                  Currently Available
+                </Badge>
+                <span className="text-sm text-muted-foreground">
+                  Accepting new projects
+                </span>
+              </div>
+              
+              <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
+              <p className="text-muted-foreground leading-relaxed mb-8">
+                I'm always excited to work on new creative projects. Whether you need a complete 
+                brand identity, stunning marketing materials, or just want to discuss your ideas, 
+                I'm here to help bring your vision to life.
               </p>
             </div>
 
-            {/* Contact Info Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {/* Contact Methods */}
+            <div className="grid gap-4">
               {contactInfo.map((info, index) => (
-                <a
-                  key={info.title}
-                  href={info.link}
-                  className="group p-6 bg-surface rounded-2xl border border-border hover:border-accent-gold transition-all duration-300 hover:shadow-lg hover:-translate-y-2"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="text-2xl mb-3">{info.icon}</div>
-                  <h4 className="font-semibold text-text-primary mb-1 group-hover:text-accent-gold transition-colors">
-                    {info.title}
-                  </h4>
-                  <p className="text-text-secondary text-sm">{info.value}</p>
-                </a>
+                <Card key={index} className="hover-lift border-0 shadow-md">
+                  <CardContent className="p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <info.icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div>
+                        <p className="font-medium">{info.label}</p>
+                        <p className="text-muted-foreground text-sm">{info.value}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
               ))}
             </div>
 
-            {/* Social Links */}
-            <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-text-primary">Follow Me</h4>
-              <div className="flex gap-4">
-                {socialLinks.map((social) => (
-                  <a
-                    key={social.name}
-                    href={social.url}
-                    className="flex items-center justify-center w-12 h-12 bg-surface rounded-full border border-border hover:border-accent-gold hover:bg-accent-gold hover:text-white transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <span className="text-lg">{social.icon}</span>
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Availability */}
-            <div className="p-6 bg-gradient-to-br from-accent-gold-muted to-accent-coral-muted rounded-2xl">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                <span className="font-semibold text-text-primary">Available for Projects</span>
-              </div>
-              <p className="text-text-secondary text-sm">
-                Currently accepting new projects for Q1 2024. Let's create something amazing together!
-              </p>
-            </div>
+            {/* Social Proof */}
+            <Card className="border-0 shadow-lg gradient-bg">
+              <CardContent className="p-6 text-center">
+                <MessageCircle className="h-12 w-12 text-white mx-auto mb-4" />
+                <h4 className="font-bold text-white mb-2">Quick Response Guarantee</h4>
+                <p className="text-white/90 text-sm">
+                  I respond to all inquiries within 24 hours. Let's start the conversation today!
+                </p>
+              </CardContent>
+            </Card>
           </div>
 
           {/* Contact Form */}
-          <div ref={formRef} className="scroll-reveal">
-            <div className="bg-surface p-8 rounded-3xl border border-border">
-              <h3 className="text-2xl font-serif font-semibold mb-6 text-text-primary">
-                Send a Message
-              </h3>
-              
+          <Card className="border-0 shadow-lg">
+            <CardHeader>
+              <CardTitle className="text-2xl">Send a Message</CardTitle>
+            </CardHeader>
+            <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-text-primary mb-2">
-                      Name *
-                    </label>
-                    <Input
-                      type="text"
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium">Name *</label>
+                    <Input 
+                      id="name" 
                       name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Your full name"
-                      className="w-full border-border focus:border-accent-gold"
-                      required
+                      placeholder="Your name" 
+                      required 
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-text-primary mb-2">
-                      Email *
-                    </label>
-                    <Input
-                      type="email"
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium">Email *</label>
+                    <Input 
+                      id="email" 
                       name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="your@email.com"
-                      className="w-full border-border focus:border-accent-gold"
-                      required
+                      type="email" 
+                      placeholder="your@email.com" 
+                      required 
                     />
                   </div>
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-text-primary mb-2">
-                    Subject *
-                  </label>
-                  <Input
-                    type="text"
+                
+                <div className="space-y-2">
+                  <label htmlFor="subject" className="text-sm font-medium">Subject *</label>
+                  <Input 
+                    id="subject" 
                     name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    placeholder="Project inquiry, collaboration, etc."
-                    className="w-full border-border focus:border-accent-gold"
-                    required
+                    placeholder="Project inquiry" 
+                    required 
                   />
                 </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-text-primary mb-2">
-                    Message *
-                  </label>
-                  <Textarea
+                
+                <div className="space-y-2">
+                  <label htmlFor="budget" className="text-sm font-medium">Budget Range</label>
+                  <Input 
+                    id="budget" 
+                    name="budget"
+                    placeholder="e.g., $500 - $1000" 
+                  />
+                </div>
+                
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-medium">Message *</label>
+                  <Textarea 
+                    id="message" 
                     name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Tell me about your project, timeline, and goals..."
-                    className="w-full min-h-[120px] border-border focus:border-accent-gold resize-none"
+                    placeholder="Tell me about your project..." 
+                    rows={5}
                     required
                   />
                 </div>
-
-                <Button
+                
+                <Button 
                   type="submit"
-                  className="w-full bg-accent-gold hover:bg-accent-coral text-white font-semibold py-4 rounded-xl hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  size="lg" 
+                  className="w-full gradient-bg hover:opacity-90"
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  <Send className="mr-2 h-5 w-5" />
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
+                
+                <p className="text-xs text-muted-foreground text-center">
+                  By sending this message, you agree to my terms of service and privacy policy.
+                </p>
               </form>
-            </div>
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="text-center mt-16 pt-8 border-t border-border">
-          <p className="text-text-secondary">
-            © 2024 Chika Favor. All rights reserved. | Giving every pixel a voice.
-          </p>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
