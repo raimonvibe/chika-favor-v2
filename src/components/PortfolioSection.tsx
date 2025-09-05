@@ -1,146 +1,136 @@
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { ExternalLink, Eye } from 'lucide-react';
+import portfolioShowcase from '@/assets/portfolio-showcase.jpg';
 
 const PortfolioSection = () => {
-  const headerRef = useScrollAnimation();
-  const gridRef = useScrollAnimation({ threshold: 0.1 });
-
-  const portfolioItems = [
+  const projects = [
     {
-      id: 1,
       title: 'Brand Identity Design',
       category: 'Branding',
-      description: 'Complete brand identity package for tech startup',
-      image: '/placeholder.svg',
-      color: 'accent-gold'
+      description: 'Complete brand identity package including logo, color palette, and brand guidelines.',
+      image: portfolioShowcase,
+      tags: ['Logo Design', 'Brand Identity', 'Guidelines']
     },
     {
-      id: 2,
       title: 'Social Media Campaign',
       category: 'Social Media',
-      description: 'Creative social media templates and campaigns',
-      image: '/placeholder.svg',
-      color: 'accent-coral'
+      description: 'Engaging social media graphics and campaign materials for lifestyle brand.',
+      image: portfolioShowcase,
+      tags: ['Social Media', 'Campaign', 'Digital']
     },
     {
-      id: 3,
       title: 'Marketing Materials',
       category: 'Print Design',
-      description: 'Flyers, posters, and promotional materials',
-      image: '/placeholder.svg',
-      color: 'accent-purple'
+      description: 'Professional marketing collateral including flyers, brochures, and posters.',
+      image: portfolioShowcase,
+      tags: ['Print Design', 'Marketing', 'Collateral']
     },
     {
-      id: 4,
-      title: 'Website UI Design',
-      category: 'Digital Design',
-      description: 'Modern website interface and user experience',
-      image: '/placeholder.svg',
-      color: 'accent-gold'
+      title: 'Product Packaging',
+      category: 'Packaging',
+      description: 'Creative packaging design that stands out on shelves and communicates brand values.',
+      image: portfolioShowcase,
+      tags: ['Packaging', 'Product Design', 'Retail']
     },
     {
-      id: 5,
-      title: 'Logo Collection',
-      category: 'Logo Design',
-      description: 'Diverse logo designs for various industries',
-      image: '/placeholder.svg',
-      color: 'accent-coral'
+      title: 'Website Graphics',
+      category: 'Digital',
+      description: 'Modern web graphics and digital assets for online presence enhancement.',
+      image: portfolioShowcase,
+      tags: ['Web Design', 'Digital Assets', 'UI Elements']
     },
     {
-      id: 6,
-      title: 'Package Design',
-      category: 'Product Design',
-      description: 'Creative packaging solutions that sell',
-      image: '/placeholder.svg',
-      color: 'accent-purple'
+      title: 'Corporate Identity',
+      category: 'Corporate',
+      description: 'Professional corporate identity system for established business.',
+      image: portfolioShowcase,
+      tags: ['Corporate', 'Professional', 'Business']
     }
   ];
 
-  const categories = ['All', 'Branding', 'Social Media', 'Print Design', 'Digital Design', 'Logo Design'];
+  const categories = ['All', 'Branding', 'Social Media', 'Print Design', 'Digital', 'Packaging', 'Corporate'];
 
   return (
-    <section id="portfolio" className="py-section bg-background">
-      <div className="max-w-container mx-auto px-6">
-        {/* Section Header */}
-        <div ref={headerRef} className="scroll-reveal text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-serif font-bold mb-6">
+    <section id="portfolio" className="py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             My <span className="gradient-text">Portfolio</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed">
-            Explore my creative journey through diverse projects spanning branding, 
-            digital design, and visual communication.
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            A collection of my latest design work showcasing creativity, strategy, and visual excellence.
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-coral rounded-full mx-auto mt-8" />
         </div>
 
-        {/* Filter Categories */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className="px-6 py-3 rounded-full border border-border hover:border-accent-gold hover:bg-accent-gold hover:text-white transition-all duration-300 text-text-secondary hover:shadow-lg"
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category, index) => (
+            <Button
+              key={index}
+              variant={index === 0 ? "default" : "outline"}
+              className={index === 0 ? "gradient-bg" : "hover-lift"}
             >
               {category}
-            </button>
+            </Button>
           ))}
         </div>
 
         {/* Portfolio Grid */}
-        <div ref={gridRef} className="scroll-reveal">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {portfolioItems.map((item, index) => (
-              <div
-                key={item.id}
-                className="group relative overflow-hidden rounded-3xl bg-surface border border-border hover:border-accent-gold transition-all duration-500 hover:shadow-2xl hover:-translate-y-2"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                {/* Image Container */}
-                <div className="aspect-[4/3] overflow-hidden">
-                  <div className={`w-full h-full bg-gradient-to-br from-${item.color}-muted to-${item.color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}>
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="group hover-lift border-0 shadow-lg overflow-hidden">
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <div className="flex gap-3">
+                    <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
+                      <Eye className="h-4 w-4 mr-2" />
+                      View
+                    </Button>
+                    <Button size="sm" variant="secondary" className="bg-white/20 backdrop-blur-sm">
+                      <ExternalLink className="h-4 w-4 mr-2" />
+                      Details
+                    </Button>
                   </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 bg-${item.color}-muted text-text-primary`}>
-                    {item.category}
-                  </div>
-                  <h3 className="text-xl font-semibold text-text-primary mb-2 group-hover:text-accent-gold transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="text-text-secondary text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-end justify-center pb-6">
-                  <button className="bg-white text-black px-6 py-3 rounded-full font-semibold transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                    View Project
-                  </button>
                 </div>
               </div>
-            ))}
-          </div>
+              
+              <CardContent className="p-6">
+                <div className="flex items-center justify-between mb-3">
+                  <Badge variant="secondary" className="text-xs">
+                    {project.category}
+                  </Badge>
+                </div>
+                
+                <h3 className="font-bold text-lg mb-2">{project.title}</h3>
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                  {project.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2">
+                  {project.tags.map((tag, tagIndex) => (
+                    <Badge key={tagIndex} variant="outline" className="text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-accent-gold-muted via-accent-coral-muted to-accent-purple-muted p-12 rounded-3xl">
-            <h3 className="text-3xl font-serif font-semibold mb-4 text-text-primary">
-              Ready to Start Your Project?
-            </h3>
-            <p className="text-text-secondary mb-6 max-w-md mx-auto">
-              Let's work together to bring your creative vision to life with stunning design solutions.
-            </p>
-            <button className="bg-accent-gold hover:bg-accent-coral text-white px-8 py-4 rounded-xl font-semibold hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              Start a Project
-            </button>
-          </div>
+        {/* View More Button */}
+        <div className="text-center mt-12">
+          <Button size="lg" variant="outline" className="hover-lift">
+            <ExternalLink className="mr-2 h-5 w-5" />
+            View Full Portfolio
+          </Button>
         </div>
       </div>
     </section>
