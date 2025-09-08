@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Download, ExternalLink } from 'lucide-react';
-import designerPortrait from '@/assets/new_profile_picture.JPG';
+import designerPortrait from '@/assets/new_profile_picture.png';
 
 const HeroSection = () => {
   return (
@@ -71,4 +71,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
 
