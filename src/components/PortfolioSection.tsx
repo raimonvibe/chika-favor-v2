@@ -2,50 +2,64 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { ExternalLink, Eye } from 'lucide-react';
-import portfolioShowcase from '@/assets/portfolio-showcase.jpg';
+import portfolio1 from '@/assets/1.png';
+import portfolio2 from '@/assets/2.png';
+import portfolio3 from '@/assets/3.png';
+import portfolio4 from '@/assets/4.png';
+import portfolio5 from '@/assets/5.png';
+import portfolio6 from '@/assets/6.png';
+import portfolio7 from '@/assets/7.png';
+
 
 const PortfolioSection = () => {
   const projects = [
     {
+      title: 'Social Media Campaign',
+      category: 'Social Media',
+      description: 'Engaging social media graphics and campaign materials for lifestyle brand.',
+      image: portfolio1,
+      tags: ['Social Media', 'Campaign', 'Digital']
+    },
+    {
       title: 'Brand Identity Design',
       category: 'Branding',
       description: 'Complete brand identity package including logo, color palette, and brand guidelines.',
-      image: portfolioShowcase,
+      image: portfolio2,
       tags: ['Logo Design', 'Brand Identity', 'Guidelines']
     },
     {
       title: 'Social Media Campaign',
       category: 'Social Media',
       description: 'Engaging social media graphics and campaign materials for lifestyle brand.',
-      image: portfolioShowcase,
+      image: portfolio3,
       tags: ['Social Media', 'Campaign', 'Digital']
     },
     {
       title: 'Marketing Materials',
       category: 'Print Design',
       description: 'Professional marketing collateral including flyers, brochures, and posters.',
-      image: portfolioShowcase,
+      image: portfolio4,
       tags: ['Print Design', 'Marketing', 'Collateral']
     },
     {
       title: 'Product Packaging',
       category: 'Packaging',
       description: 'Creative packaging design that stands out on shelves and communicates brand values.',
-      image: portfolioShowcase,
+      image: portfolio5,
       tags: ['Packaging', 'Product Design', 'Retail']
     },
     {
       title: 'Website Graphics',
       category: 'Digital',
       description: 'Modern web graphics and digital assets for online presence enhancement.',
-      image: portfolioShowcase,
+      image: portfolio6,
       tags: ['Web Design', 'Digital Assets', 'UI Elements']
     },
     {
       title: 'Corporate Identity',
       category: 'Corporate',
       description: 'Professional corporate identity system for established business.',
-      image: portfolioShowcase,
+      image: portfolio7,
       tags: ['Corporate', 'Professional', 'Business']
     }
   ];
