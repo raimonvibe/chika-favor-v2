@@ -12,57 +12,58 @@ import portfolio7 from '@/assets/7.png';
 
 
 const PortfolioSection = () => {
-  const projects = [
-    {
-      title: 'Social Media Campaign',
-      category: 'Social Media',
-      description: 'Engaging social media graphics and campaign materials for lifestyle brand.',
-      image: portfolio1,
-      tags: ['Social Media', 'Campaign', 'Digital']
-    },
-    {
-      title: 'Brand Identity Design',
-      category: 'Branding',
-      description: 'Complete brand identity package including logo, color palette, and brand guidelines.',
-      image: portfolio2,
-      tags: ['Logo Design', 'Brand Identity', 'Guidelines']
-    },
-    {
-      title: 'Social Media Campaign',
-      category: 'Social Media',
-      description: 'Engaging social media graphics and campaign materials for lifestyle brand.',
-      image: portfolio3,
-      tags: ['Social Media', 'Campaign', 'Digital']
-    },
-    {
-      title: 'Marketing Materials',
-      category: 'Print Design',
-      description: 'Professional marketing collateral including flyers, brochures, and posters.',
-      image: portfolio4,
-      tags: ['Print Design', 'Marketing', 'Collateral']
-    },
-    {
-      title: 'Product Packaging',
-      category: 'Packaging',
-      description: 'Creative packaging design that stands out on shelves and communicates brand values.',
-      image: portfolio5,
-      tags: ['Packaging', 'Product Design', 'Retail']
-    },
-    {
-      title: 'Website Graphics',
-      category: 'Digital',
-      description: 'Modern web graphics and digital assets for online presence enhancement.',
-      image: portfolio6,
-      tags: ['Web Design', 'Digital Assets', 'UI Elements']
-    },
-    {
-      title: 'Corporate Identity',
-      category: 'Corporate',
-      description: 'Professional corporate identity system for established business.',
-      image: portfolio7,
-      tags: ['Corporate', 'Professional', 'Business']
-    }
-  ];
+
+const projects = [
+  {
+    title: 'Social Media Campaigns',
+    category: 'Social Media',
+    description: 'Creative and engaging social media graphics designed to boost brand visibility and connect with online audiences across multiple platforms.',
+    image: portfolio1,
+    tags: ['Social Media', 'Digital Marketing', 'Campaigns']
+  },
+  {
+    title: 'Brand Identity Systems',
+    category: 'Branding',
+    description: 'Complete brand identity packages including logo, typography, and color systems that establish a strong and consistent visual presence.',
+    image: portfolio2,
+    tags: ['Brand Identity', 'Logo Design', 'Guidelines']
+  },
+  {
+    title: 'Logo Design Collection',
+    category: 'Logo Design',
+    description: 'Unique and memorable logo designs tailored to reflect each brand’s personality, values, and market positioning.',
+    image: portfolio3,
+    tags: ['Logo', 'Brand Mark', 'Visual Identity']
+  },
+  {
+    title: 'Event Posters & Flyers',
+    category: 'Print Design',
+    description: 'Bold and eye-catching event posters and flyers created to capture attention and communicate key event details effectively.',
+    image: portfolio4,
+    tags: ['Event Design', 'Posters', 'Flyers']
+  },
+  {
+    title: 'Church Media Designs',
+    category: 'Faith-Based',
+    description: 'Inspirational flyers, posters, and digital banners crafted for church programs and events with clarity, warmth, and impact.',
+    image: portfolio5,
+    tags: ['Church Design', 'Media', 'Faith-Based']
+  },
+  {
+    title: 'Corporate Design Solutions',
+    category: 'Corporate',
+    description: 'Professional corporate identity systems, including stationery and brand guidelines, designed for businesses to establish authority and trust.',
+    image: portfolio6,
+    tags: ['Corporate Identity', 'Professional', 'Business']
+  },
+  {
+    title: 'Product Packaging Design',
+    category: 'Packaging',
+    description: 'Creative and functional product packaging that stands out on shelves while reflecting the brand’s values and appealing to its target market.',
+    image: portfolio7,
+    tags: ['Packaging', 'Product Design', 'Retail']
+  }
+];
 
   const categories = ['All', 'Branding', 'Social Media', 'Print Design', 'Digital', 'Packaging', 'Corporate'];
 
