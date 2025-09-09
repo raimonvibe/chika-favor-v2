@@ -111,7 +111,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Product Packaging Design",
     category: "Packaging",
     description: "Creative and functional product packaging that stands out on shelves while reflecting the brand's values and appealing to its target market.",
-    image: productPackagingDesign,
+    image: logoDesignCollection,
     specs: {
       client: "Product Companies",
       tools: ["Adobe Illustrator", "Photoshop", "Dimension"],
