@@ -6,7 +6,7 @@ import portfolio1 from '@/assets/1.png';
 import portfolio2 from '@/assets/2.png';
 import portfolio3 from '@/assets/3.png';
 import portfolio4 from '@/assets/4.png';
-import portfolio5 from '@/assets/5.png';
+import portfolio5 from '@/assets/5.jpg';
 import portfolio6 from '@/assets/6.png';
 import portfolio7 from '@/assets/7.png';
 
@@ -153,4 +153,5 @@ const projects = [
 };
 
 export default PortfolioSection;
+
 
