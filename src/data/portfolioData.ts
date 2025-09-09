@@ -55,7 +55,7 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Logo Design Collection",
     category: "Branding",
     description: "Unique and memorable logo designs tailored to reflect each brand's personality, values, and market positioning.",
-    image: logoDesignCollection,
+    image: productPackagingDesign,
     specs: {
       client: "Startups & SMEs",
       tools: ["Adobe Illustrator", "Figma"],
