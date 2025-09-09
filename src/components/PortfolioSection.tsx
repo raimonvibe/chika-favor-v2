@@ -32,7 +32,7 @@ const projects = [
     title: 'Logo Design Collection',
     category: 'Logo Design',
     description: 'Unique and memorable logo designs tailored to reflect each brand’s personality, values, and market positioning.',
-    image: portfolio3,
+    image: portfolio7,
     tags: ['Logo', 'Brand Mark', 'Visual Identity']
   },
   {
@@ -60,7 +60,7 @@ const projects = [
     title: 'Product Packaging Design',
     category: 'Packaging',
     description: 'Creative and functional product packaging that stands out on shelves while reflecting the brand’s values and appealing to its target market.',
-    image: portfolio7,
+    image: portfolio3,
     tags: ['Packaging', 'Product Design', 'Retail']
   }
 ];
@@ -153,3 +153,4 @@ const projects = [
 };
 
 export default PortfolioSection;
+
