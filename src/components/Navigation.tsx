@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home'); // ✅ Track active section
 
   const navItems = [
+    { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Portfolio', href: '#portfolio' },
     { label: 'Services', href: '#services' },
@@ -13,20 +15,50 @@ const Navigation = () => {
   ];
 
   const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (href === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsOpen(false);
   };
+
+  // ✅ Detect which section is in view
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 200; // offset for navbar height
+      let current = 'home';
+
+      navItems.forEach((item) => {
+        const section = document.querySelector(item.href);
+        if (section && section instanceof HTMLElement) {
+          if (scrollPosition >= section.offsetTop) {
+            current = item.label.toLowerCase();
+          }
+        }
+      });
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="font-bold text-xl gradient-text">
+          {/* ✅ Clickable Logo */}
+          <button
+            onClick={() => scrollToSection('#home')}
+            className="font-bold text-xl gradient-text cursor-pointer"
+          >
             CHIKA FAVOR
-          </div>
+          </button>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -34,7 +66,11 @@ const Navigation = () => {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground hover:text-primary transition-colors duration-200"
+                className={`transition-colors duration-200 ${
+                  activeSection === item.label.toLowerCase()
+                    ? 'text-primary font-semibold'
+                    : 'text-foreground hover:text-primary'
+                }`}
               >
                 {item.label}
               </button>
@@ -64,7 +100,11 @@ const Navigation = () => {
                 <button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground hover:text-primary transition-colors duration-200"
+                  className={`text-left transition-colors duration-200 ${
+                    activeSection === item.label.toLowerCase()
+                      ? 'text-primary font-semibold'
+                      : 'text-foreground hover:text-primary'
+                  }`}
                 >
                   {item.label}
                 </button>
