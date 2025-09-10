@@ -64,8 +64,8 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+234 (0) 123 456 7890',
-      href: 'tel:+2341234567890'
+      value: '+23490161260600',
+      href: 'tel:+2349016126060'
     },
     {
       icon: MapPin,
