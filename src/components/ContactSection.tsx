@@ -64,7 +64,7 @@ const ContactSection = () => {
     {
       icon: Phone,
       label: 'Phone',
-      value: '+23490161260600',
+      value: '(+234) (0) 90161260600',
       href: 'tel:+2349016126060'
     },
     {
@@ -201,3 +201,4 @@ const ContactSection = () => {
 };
 
 export default ContactSection;
+
