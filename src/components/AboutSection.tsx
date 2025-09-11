@@ -39,22 +39,27 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
       <div className="max-w-7xl mx-auto">
+        {/* Section Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-4">
             About <span className="gradient-text">Me</span>
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            A passionate creative and brand designer dedicated to giving every pixel a voice.
+          </p>
         </div>
 
+        {/* Main Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left Content */}
-          <div className="space-y-8">
+          {/* Left Column */}
+          <div className="space-y-10">
+            {/* Bio */}
             <div className="space-y-6">
               <p className="text-lg leading-relaxed">
                 I'm <strong>CHIKA FAVOR</strong>, a passionate creative and brand designer with a keen 
                 eye for detail. I specialize in transforming ideas into stunning visuals that 
                 communicate powerfully.
               </p>
-              
               <p className="text-lg leading-relaxed text-muted-foreground">
                 From logos and brand identities to social media creatives and advertising designs, 
                 I help businesses and individuals bring their vision to life. Every design I create 
@@ -62,23 +67,29 @@ const AboutSection = () => {
               </p>
             </div>
 
-            {/* Strengths Grid */}
-            <div className="grid sm:grid-cols-2 gap-6">
-              {strengths.map((strength, index) => (
-                <Card key={index} className="hover-lift border-0 shadow-lg">
-                  <CardContent className="p-6 text-center">
-                    <strength.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
-                    <h3 className="font-semibold mb-2">{strength.title}</h3>
-                    <p className="text-sm text-muted-foreground">{strength.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            {/* Strengths */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">My Strengths</h3>
+              <div className="grid sm:grid-cols-2 gap-6">
+                {strengths.map((strength, index) => (
+                  <Card 
+                    key={index} 
+                    className="hover-lift border-0 shadow-md transition-transform duration-300 hover:scale-105"
+                  >
+                    <CardContent className="p-6 text-center">
+                      <strength.icon className="h-12 w-12 mx-auto mb-4 text-primary" />
+                      <h4 className="font-semibold mb-2">{strength.title}</h4>
+                      <p className="text-sm text-muted-foreground">{strength.description}</p>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
             </div>
 
-            {/* Design Philosophy */}
+            {/* Philosophy */}
             <Card className="border-0 shadow-lg gradient-bg-secondary">
               <CardContent className="p-6">
-                <h3 className="font-semibold mb-3 text-white">My Design Philosophy</h3>
+                <h3 className="font-semibold mb-3 text-white text-xl">My Design Philosophy</h3>
                 <p className="text-white/90 leading-relaxed">
                   Every design tells a story. I believe in creating visuals that don't just look good, 
                   but communicate effectively and leave a lasting impression. Each project is an 
@@ -89,7 +100,7 @@ const AboutSection = () => {
 
             {/* Languages */}
             <div>
-              <h3 className="font-semibold mb-3">Languages</h3>
+              <h3 className="text-2xl font-semibold mb-3">Languages</h3>
               <div className="flex flex-wrap gap-2">
                 {languages.map((language, index) => (
                   <Badge key={index} variant="secondary" className="text-sm">
@@ -100,26 +111,24 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Right Content - Skills */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-6">Skills</h3>
-              <div className="space-y-6">
-                {skills.map((skill, index) => (
-                  <div key={index} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-sm text-muted-foreground">{skill.percentage}%</span>
-                    </div>
-                    <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-                      <div 
-                        className="h-full gradient-bg rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.percentage}%` }}
-                      ></div>
-                    </div>
+          {/* Right Column */}
+          <div className="space-y-10">
+            <h3 className="text-2xl font-bold mb-6">Skills</h3>
+            <div className="space-y-6">
+              {skills.map((skill, index) => (
+                <div key={index} className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="font-medium">{skill.name}</span>
+                    <span className="text-sm text-muted-foreground">{skill.percentage}%</span>
                   </div>
-                ))}
-              </div>
+                  <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
+                    <div 
+                      className="h-full gradient-bg rounded-full transition-all duration-1000 ease-out animate-[grow_1.5s_ease-out]"
+                      style={{ width: `${skill.percentage}%` }}
+                    ></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
