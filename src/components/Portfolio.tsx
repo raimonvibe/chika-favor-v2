@@ -66,6 +66,18 @@ const Portfolio = () => {
         </div>
       )}
 
+      {/* See More Button + Caption */}
+      <div className="flex flex-col items-center mt-12 space-y-2">
+        <Button
+          size="lg"
+          className="bg-sky-500 text-white font-semibold px-6 py-3 rounded-xl shadow-lg hover:bg-sky-600 transition-all duration-300 animate-bounce"
+          onClick={() => window.open("/projects.pdf", "_blank")}
+        >
+          🚀 See More Projects
+        </Button>
+        <p className="text-gray-500 text-sm">View my full catalog of projects in PDF</p>
+      </div>
+
       {/* Project Modal */}
       <ProjectModal
         project={selectedProject}
