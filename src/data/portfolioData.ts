@@ -31,7 +31,7 @@ export const portfolioProjects: PortfolioProject[] = [
     specs: {
       client: "Various Brands",
       tools: ["Adobe Illustrator", "Photoshop", "Canva Pro"],
-      timeline: "2-3 days",
+      timeline: "2-3 weeks",
       deliverables: ["Instagram posts", "Story templates", "Facebook graphics", "LinkedIn banners", "Brand guidelines"]
     },
     tags: ["Social Media", "Digital Marketing", "Campaigns"]
@@ -45,7 +45,7 @@ export const portfolioProjects: PortfolioProject[] = [
     specs: {
       client: "Corporate Clients",
       tools: ["Adobe Illustrator", "Photoshop", "Figma"],
-      timeline: "2-3 days",
+      timeline: "4-6 weeks",
       deliverables: ["Logo design", "Brand guidelines", "Color palette", "Typography guide", "Business cards"]
     },
     tags: ["Brand Identity", "Logo Design", "Guidelines"]
@@ -53,13 +53,13 @@ export const portfolioProjects: PortfolioProject[] = [
   {
     id: "logo-design-collection",
     title: "Logo Design Collection",
-    category: "Branding",
+    category: "Logo Design",
     description: "Unique and memorable logo designs tailored to reflect each brand's personality, values, and market positioning.",
-    image: productPackagingDesign,
+    image: logoDesignCollection,
     specs: {
       client: "Startups & SMEs",
       tools: ["Adobe Illustrator", "Figma"],
-      timeline: "2-3 days",
+      timeline: "1-2 weeks",
       deliverables: ["Primary logo", "Logo variations", "Favicon", "Social media logos", "Vector files"]
     },
     tags: ["Logo", "Brand Mark", "Visual Identity"]
@@ -73,7 +73,7 @@ export const portfolioProjects: PortfolioProject[] = [
     specs: {
       client: "Event Organizers",
       tools: ["Adobe InDesign", "Illustrator", "Photoshop"],
-      timeline: "2-3 days",
+      timeline: "1-2 weeks",
       deliverables: ["Event posters", "Flyers", "Digital versions", "Print-ready files", "Social media variants"]
     },
     tags: ["Event Design", "Posters", "Flyers"]
@@ -87,7 +87,7 @@ export const portfolioProjects: PortfolioProject[] = [
     specs: {
       client: "Religious Organizations",
       tools: ["Adobe Creative Suite", "Canva"],
-      timeline: "2-3 days",
+      timeline: "1-3 weeks",
       deliverables: ["Church flyers", "Event banners", "Program covers", "Social media graphics", "Bulletin designs"]
     },
     tags: ["Church Design", "Media", "Faith-Based"]
@@ -101,7 +101,7 @@ export const portfolioProjects: PortfolioProject[] = [
     specs: {
       client: "Corporate Businesses",
       tools: ["Adobe InDesign", "Illustrator", "Photoshop"],
-      timeline: "2-3 days",
+      timeline: "3-5 weeks",
       deliverables: ["Corporate identity", "Letterheads", "Business cards", "Email signatures", "Presentation templates"]
     },
     tags: ["Corporate Identity", "Professional", "Business"]
@@ -111,15 +111,15 @@ export const portfolioProjects: PortfolioProject[] = [
     title: "Product Packaging Design",
     category: "Packaging",
     description: "Creative and functional product packaging that stands out on shelves while reflecting the brand's values and appealing to its target market.",
-    image: logoDesignCollection,
+    image: productPackagingDesign,
     specs: {
       client: "Product Companies",
       tools: ["Adobe Illustrator", "Photoshop", "Dimension"],
-      timeline: "2-3 days",
+      timeline: "3-4 weeks",
       deliverables: ["Package design", "Label design", "3D mockups", "Dieline files", "Print specifications"]
     },
     tags: ["Packaging", "Product Design", "Retail"]
   }
 ];
 
-export const categories = ["All", "Branding", "Social Media", "Print Design", "Digital", "Packaging", "Corporate", "Faith-Based"];
+export const categories = ["All", "Branding", "Social Media", "Print Design", "Logo Design", "Packaging", "Corporate", "Faith-Based"];
