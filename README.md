@@ -4,7 +4,7 @@
 
 A fast, lightweight portfolio site for **Chika Favor**, showcasing services, work samples, and contact options. Built with a modern front‑end stack for simple customization and quick deployment.
 
-> Live site: https://chika-favor.vercel.app/
+> Live site: https://chika-favor-v2.vercel.app/
 
 ## Table of Contents
 - [Overview](#overview)
