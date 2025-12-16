@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Rocket, Palette, Zap, TrendingUp, Users, Twitter } from "lucide-react";
+import web3HeroImage from "@/assets/web3-design.jpeg";
 
 const Web3Section = () => {
   const deliverables = [
@@ -52,9 +53,9 @@ const Web3Section = () => {
         </h2>
         
         {/* Web3 Hero Image */}
-        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl bg-gray-100">
           <img
-            src="/web3-hero.jpg"
+            src={web3HeroImage}
             alt="Web3 Design - Orderly Network"
             className="w-full h-auto"
           />
