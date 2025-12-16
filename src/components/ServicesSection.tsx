@@ -7,6 +7,7 @@ import {
   Share2, 
   Package, 
   Megaphone,
+  Rocket,  // ADD THIS
   ArrowRight
 } from 'lucide-react';
 
@@ -22,6 +23,17 @@ const ServicesSection = () => {
         { name: 'Premium', price: '$150', features: ['3 Concepts + Unlimited Revisions', 'Full Branding Guide', '5 Mockups'] },
       ]
     },
+    {
+      icon: Rocket,  // You'll need to import this: import { Rocket } from 'lucide-react';
+      title: 'Web3 Design',
+      description: 'High-impact Web3 visuals for blockchain, NFT, and DAO projects.',
+      tiers: [
+        { name: 'Starter', price: '$50', features: ['Landing Page Design', 'Basic Brand Kit', '2 Mockups', '2-3 Day Delivery'] },
+        { name: 'Standard', price: '$120', features: ['NFT/Mint Page Design', 'Social Media Pack', 'Thread Assets', '4 Mockups', '2-3 Day Delivery'] },
+        { name: 'Premium', price: '$250', features: ['Full Web3 Brand Identity', 'DAO Dashboard UI', 'Pitch Deck', 'Tokenomics Visuals', '6 Mockups', '2-3 Day Delivery'] },
+      ]
+    },
+
     {
       icon: Monitor,
       title: 'Digital Design',
