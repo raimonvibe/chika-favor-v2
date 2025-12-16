@@ -5,6 +5,7 @@ import eventPostersFlyers from "@/assets/event-posters-flyers.png";
 import churchMediaDesigns from "@/assets/church-media-designs.jpg";
 import corporateDesignSolutions from "@/assets/corporate-design-solutions.jpeg";
 import productPackagingDesign from "@/assets/product-packaging-design.jpeg";
+import web3DesignProject from "@/assets/web3-design.jpeg"; 
 
 export interface PortfolioProject {
   id: string;
@@ -119,9 +120,21 @@ export const portfolioProjects: PortfolioProject[] = [
       deliverables: ["Package design", "Label design", "3D mockups", "Dieline files", "Print specifications"]
     },
     tags: ["Packaging", "Product Design", "Retail"]
+  },
+  {
+    id: "web3-design-orderly",
+    title: "Orderly Network - Web3 Design",
+    category: "Web3 Design",
+    description: "High-impact Web3 visual design for Orderly Network, showcasing permissionless liquidity layer branding with futuristic aesthetics and investor-ready presentation.",
+    image: web3DesignProject,
+    specs: {
+      client: "Orderly Network",
+      tools: ["Adobe Illustrator", "Photoshop", "Figma"],
+      timeline: "2-3 days",
+      deliverables: ["Landing page design", "Brand visuals", "Social media assets", "Twitter thread graphics", "Pitch deck designs"]
+    },
+    tags: ["Web3", "Blockchain", "NFT", "Crypto", "DeFi"]
   }
 ];
 
 export const categories = ["All", "Branding", "Social Media", "Print Design", "Logo Design", "Packaging", "Corporate", "Faith-Based", "Web3 Design"];
-
-
