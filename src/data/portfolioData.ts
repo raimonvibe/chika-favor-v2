@@ -1,10 +1,10 @@
 import socialMediaCampaigns from "@/assets/social-media-campaigns.png";
-import brandIdentitySystems from "@/assets/brand-identity-systems.png";
-import logoDesignCollection from "@/assets/logo-design-collection.png";
+import brandIdentitySystems from "@/assets/brand-identity-systems.jpeg";
+import logoDesignCollection from "@/assets/logo-design-collection.jpeg";
 import eventPostersFlyers from "@/assets/event-posters-flyers.png";
 import churchMediaDesigns from "@/assets/church-media-designs.jpg";
-import corporateDesignSolutions from "@/assets/corporate-design-solutions.png";
-import productPackagingDesign from "@/assets/product-packaging-design.png";
+import corporateDesignSolutions from "@/assets/corporate-design-solutions.jpeg";
+import productPackagingDesign from "@/assets/product-packaging-design.jpeg";
 
 export interface PortfolioProject {
   id: string;
@@ -123,3 +123,4 @@ export const portfolioProjects: PortfolioProject[] = [
 ];
 
 export const categories = ["All", "Branding", "Social Media", "Print Design", "Logo Design", "Packaging", "Corporate", "Faith-Based"];
+
