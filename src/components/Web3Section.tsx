@@ -42,14 +42,24 @@ const Web3Section = () => {
 
   return (
     <section id="web3" className="py-16 px-4 md:px-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="text-center mb-12 space-y-4">
+      {/* Header with Hero Image */}
+      <div className="text-center mb-12 space-y-6">
         <Badge className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-1">
           Web3 Specialist
         </Badge>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
           Web3 Design Solutions
         </h2>
+        
+        {/* Web3 Hero Image */}
+        <div className="relative max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+          <img
+            src="/web3-hero.jpg"
+            alt="Web3 Design - Orderly Network"
+            className="w-full h-auto"
+          />
+        </div>
+        
         <p className="text-gray-600 max-w-3xl mx-auto text-lg leading-relaxed">
           I design high-impact Web3 visuals that bridge innovation, trust, and conversion. 
           From blockchain startups to NFT projects, my designs are crafted to communicate 
