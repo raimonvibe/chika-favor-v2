@@ -9,8 +9,9 @@ const Navigation = () => {
   const navItems = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
-    { label: 'Portfolio', href: '#portfolio' },
     { label: 'Services', href: '#services' },
+    { label: 'Web3 Design', href: '#web3' },  
+    { label: 'Portfolio', href: '#portfolio' },
     { label: 'Contact', href: '#contact' }
   ];
 
@@ -121,3 +122,4 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
