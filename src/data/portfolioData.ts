@@ -122,5 +122,6 @@ export const portfolioProjects: PortfolioProject[] = [
   }
 ];
 
-export const categories = ["All", "Branding", "Social Media", "Print Design", "Logo Design", "Packaging", "Corporate", "Faith-Based"];
+export const categories = ["All", "Branding", "Social Media", "Print Design", "Logo Design", "Packaging", "Corporate", "Faith-Based", "Web3 Design"];
+
 
