@@ -29,13 +29,13 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
 
         <div className="space-y-6">
           {/* Project Image */}
-          <div className="relative overflow-hidden rounded-lg">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-96 object-cover"
-            />
-          </div>
+        <div className="relative overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-auto object-contain max-h-[60vh]"
+          />
+        </div>
 
           {/* Project Description */}
           <div className="space-y-4">
@@ -122,5 +122,6 @@ const ProjectModal = ({ project, isOpen, onClose }: ProjectModalProps) => {
     </Dialog>
   );
 };
+
 
 export default ProjectModal;
