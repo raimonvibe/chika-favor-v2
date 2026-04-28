@@ -1,13 +1,13 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { 
-  Palette, 
-  Monitor, 
-  Printer, 
-  Share2, 
-  Package, 
+import {
+  Palette,
+  Monitor,
+  Printer,
+  Share2,
+  Package,
   Megaphone,
-  Rocket,  // ADD THIS
+  Rocket,
   ArrowRight
 } from 'lucide-react';
 
@@ -24,13 +24,13 @@ const ServicesSection = () => {
       ]
     },
     {
-      icon: Rocket,  // You'll need to import this: import { Rocket } from 'lucide-react';
+      icon: Rocket,
       title: 'Web3 Design',
       description: 'High-impact Web3 visuals for blockchain, NFT, and DAO projects.',
       tiers: [
-        { name: 'Starter', price: '$50', features: ['Landing Page Design', 'Basic Brand Kit', '2 Mockups', '2-3 Day Delivery'] },
-        { name: 'Standard', price: '$120', features: ['NFT/Mint Page Design', 'Social Media Pack', 'Thread Assets', '4 Mockups', '2-3 Day Delivery'] },
-        { name: 'Premium', price: '$250', features: ['Full Web3 Brand Identity', 'DAO Dashboard UI', 'Pitch Deck', 'Tokenomics Visuals', '6 Mockups', '2-3 Day Delivery'] },
+        { name: 'Starter', price: '$50', features: ['Landing Page Design', 'Basic Brand Kit', '2 Mockups'] },
+        { name: 'Standard', price: '$120', features: ['NFT/Mint Page Design', 'Social Media Pack', 'Thread Assets', '4 Mockups'] },
+        { name: 'Premium', price: '$250', features: ['Full Web3 Brand Identity', 'DAO Dashboard UI', 'Pitch Deck', 'Tokenomics Visuals', '6 Mockups'] },
       ]
     },
 
@@ -76,12 +76,13 @@ const ServicesSection = () => {
     },
     {
       icon: Megaphone,
-      title: 'Marketing Materials',
-      description: 'Campaigns, promotional materials, and trade show designs.',
+      title: 'UGC & AI Video Ads',
+      description: 'High-converting UGC and AI-generated video ads with natural human-like voices and multiple accents for global audiences.',
+      video: '/videos/ad-video.mp4',
       tiers: [
-        { name: 'Starter', price: '$10', features: ['2 Materials (Flyer/Brochure)', '1 Mockup'] },
-        { name: 'Standard', price: '$35', features: ['5 Materials', '2 Mockups'] },
-        { name: 'Premium', price: '$70', features: ['Full Campaign Pack', '4 Mockups'] },
+        { name: 'Starter', price: '$30', features: ['1 Video Ad (15-30s)', 'Basic Voiceover', 'Captions Included'] },
+        { name: 'Standard', price: '$70', features: ['2 Video Ads', 'AI Voice (Multiple Accents)', 'Script + Captions'] },
+        { name: 'Premium', price: '$150', features: ['4 Video Ads', 'Advanced AI Voices', 'Full Ad Creative Strategy'] },
       ]
     }
   ];
@@ -95,7 +96,7 @@ const ServicesSection = () => {
             <span className="gradient-text">Services</span> I Offer
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Affordable and professional design solutions with flexible packages to fit your needs.
+            Creative design and high-converting ad solutions tailored to grow your brand.
           </p>
         </div>
 
@@ -104,9 +105,36 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card key={index} className="group hover-lift border-0 shadow-lg h-full">
               <CardHeader className="pb-4">
-                <div className="w-16 h-16 rounded-2xl gradient-bg-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <service.icon className="h-8 w-8 text-white" />
-                </div>
+
+                {service.video ? (
+                  <div
+                    className="mb-4 overflow-hidden rounded-xl"
+                    onMouseEnter={(event) => {
+                      const video = event.currentTarget.querySelector('video');
+                      void video?.play();
+                    }}
+                    onMouseLeave={(event) => {
+                      const video = event.currentTarget.querySelector('video');
+                      if (!video) return;
+                      video.pause();
+                      video.currentTime = 0;
+                    }}
+                  >
+                    <video
+                      className="w-full h-40 object-cover rounded-xl transition-transform duration-500 group-hover:scale-105"
+                      src={service.video}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-16 h-16 rounded-2xl gradient-bg-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <service.icon className="h-8 w-8 text-white" />
+                  </div>
+                )}
+
                 <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {service.description}
@@ -139,12 +167,11 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* CTA Section */}
         <div className="text-center mt-16">
           <div className="bg-card rounded-3xl p-8 shadow-lg max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4">Need a Custom Solution?</h3>
             <p className="text-muted-foreground mb-6">
-              Every project is unique. Let’s create a tailored design solution that perfectly fits your needs.
+              Let’s create something powerful that helps your brand grow and convert.
             </p>
             <Button size="lg" className="gradient-bg hover:opacity-90">
               Schedule a Consultation

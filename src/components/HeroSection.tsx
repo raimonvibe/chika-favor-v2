@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Download, Mail } from 'lucide-react';
-import designerPortrait from '@/assets/new_profile_picture.png';
+import designerPortrait from '@/assets/new_profile_picture.jpeg';
 import cvFile from '@/assets/my_resume.pdf'; // ✅ place your CV here
 
 const HeroSection = () => {
